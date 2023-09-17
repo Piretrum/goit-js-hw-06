@@ -4,23 +4,25 @@ function getRandomHexColor() {
     .padStart(6, 0)}`;
 }
 
-const btnEl = document.querySelector('.change-color')
-const textEl = document.querySelector('.color')
-const bodiEl = document.querySelector('body')
+const btnEl = document.querySelector('.change-color');
+const spanEl = document.querySelector('.color');
+const bodyEl = document.querySelector('body');
 
+btnEl.addEventListener('click', onClick);
 
-
-btnEl.addEventListener('click', onClick)
+const xxx = getRandomHexColor()
 
 function onClick(evt) {
-  bodiEl.style.backgroundColor = getRandomHexColor();
-  textEl.textContent = getRandomHexColor();
+  bodyEl.style.backgroundColor = xxx;
+  spanEl.textContent = xxx;
 
 }
 
-/*
-
-3. будет менять цвет фона боди по клику. 
-  3а. Взять значение фона из функции рандом.
-  3б. Функцию рандом сделать наверное колбеком.
+/* виклик функції getRandomHexColor потрібно записати в змінну та потім її використовувати для зміни фону
+ і текстового значення тегу span. 
+ 
+ У вашому випадку функція викликається два рази, 
+ тому колір фону 
+ буде відрізнятись 
+ від коду кольору в спані.
 */
