@@ -20,18 +20,29 @@ let size = 30;
  
     
 function createBoxes() {
- for (let i = 1; i <= amount; i += 1) {
-  bigBox.insertAdjacentHTML("beforeend",
-    "<div style="height: ${size}px ; width: ${size}px; background-color: ${getRandomHexColor}; border-radius: 50%;"></div>");
+  for (let i = 1; i <= amount; i += 1) {
+   const arrayEls = [];
+   const littlebox = document.createElement('div');
+    
+   littlebox.style.backgroundColor = getRandomHexColor();
+   littlebox.style.width = size;
+   littlebox.style.height = size;
+   arrayEls.push(littlebox);
+    
+   size += 10;
+  }
+}
+bigBox.append(...arrayEls);
    
-  size += 10;
-  
-}
-}
+
+
    
 function destroyBoxes() {
   bigBox.innerHTML = "";
 }
+
+
+
 
 // const markup = () => {
 //   for (let i = 1; i <= amount; i += 1) {
@@ -39,4 +50,11 @@ function destroyBoxes() {
 //   }
 //   <div style="height: ${size}px ; width: ${size}px; background-color: ${getRandomHexColor}; border-radius: 50%;"></div>
 // }
-  
+
+
+
+
+
+
+// bigBox.insertAdjacentHTML("beforeend",
+//     `<div style="height: ${size}px ; width: ${size}px; background-color: ${getRandomHexColor}; border-radius: 50%;"></div>`);
