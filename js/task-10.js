@@ -17,25 +17,25 @@ btnDelete.addEventListener('click', destroyBoxes);
 
 let amount = Number(inputEl.value);
 let size = 30;
- 
+let color = getRandomHexColor();
+const arrayEls = [];
     
 function createBoxes() {
+
   for (let i = 1; i <= amount; i += 1) {
-   const arrayEls = [];
    const littlebox = document.createElement('div');
-    
-   littlebox.style.backgroundColor = getRandomHexColor();
-   littlebox.style.width = size;
-   littlebox.style.height = size;
+   littlebox.style.backgroundColor = `${color}`;
+   littlebox.style.width = `${size}px`;
+   littlebox.style.height = `${size}px`;
+   littlebox.style.borderRadius = "50%";
+   
    arrayEls.push(littlebox);
-    
    size += 10;
   }
+  bigBox.append(...arrayEls);
 }
-bigBox.append(...arrayEls);
-   
 
-
+ 
    
 function destroyBoxes() {
   bigBox.innerHTML = "";
