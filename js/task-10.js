@@ -4,30 +4,29 @@ function getRandomHexColor() {
     .padStart(6, 0)}`;
 }
 
-
 const controlBox = document.querySelector('#controls');
 const bigBox = document.querySelector('#boxes');
 const inputEl = document.querySelector('input');
 const btnCreate = document.querySelector('[data-create]');
 const btnDelete = document.querySelector('[data-destroy]');
-
  
 btnCreate.addEventListener('click', createBoxes);
 btnDelete.addEventListener('click', destroyBoxes);
 
-let amount = Number(inputEl.value);
-let size = 30;
-let color = getRandomHexColor();
-const arrayEls = [];
+
+
     
 function createBoxes() {
-
+  let size = 30;
+  const arrayEls = [];
+  let amount = Number(inputEl.value);
   for (let i = 1; i <= amount; i += 1) {
+  
    const littlebox = document.createElement('div');
-   littlebox.style.backgroundColor = `${color}`;
+   littlebox.style.backgroundColor = getRandomHexColor();
    littlebox.style.width = `${size}px`;
    littlebox.style.height = `${size}px`;
-   littlebox.style.borderRadius = "50%";
+  //  littlebox.style.borderRadius = "50%";
    
    arrayEls.push(littlebox);
    size += 10;
@@ -39,22 +38,5 @@ function createBoxes() {
    
 function destroyBoxes() {
   bigBox.innerHTML = "";
+  inputEl.value = "";
 }
-
-
-
-
-// const markup = () => {
-//   for (let i = 1; i <= amount; i += 1) {
-
-//   }
-//   <div style="height: ${size}px ; width: ${size}px; background-color: ${getRandomHexColor}; border-radius: 50%;"></div>
-// }
-
-
-
-
-
-
-// bigBox.insertAdjacentHTML("beforeend",
-//     `<div style="height: ${size}px ; width: ${size}px; background-color: ${getRandomHexColor}; border-radius: 50%;"></div>`);
